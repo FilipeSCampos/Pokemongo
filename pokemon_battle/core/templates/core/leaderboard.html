@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Leaderboard - Pokémon Battle{% endblock %}
+
+{% block content %}
+<h2>Leaderboard</h2>
+<table class="leaderboard-table">
+    <thead>
+        <tr>
+            <th>Posição</th>
+            <th>Jogador</th>
+            <th>Vitórias</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entry in leaderboard %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ entry.player.username }}</td>
+            <td>{{ entry.battles_won }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'home' %}" class="button">Voltar ao Início</a>
+{% endblock %}

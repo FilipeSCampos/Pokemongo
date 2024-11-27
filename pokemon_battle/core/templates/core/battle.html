@@ -1,0 +1,38 @@
+<form method="POST" id="battle-form">
+    {% csrf_token %}
+    <h2>{{ player_pokemon.name }} vs {{ npc_pokemon.name }}</h2>
+
+    <div class="battle-container">
+        <!-- Informações do Pokémon do jogador -->
+        <div class="pokemon-stats">
+            <h3>{{ player_pokemon.name }}</h3>
+            <p>HP: <span id="player-hp">{{ player_pokemon.hp }}</span></p>
+            <ul>
+                {% for attack in player_pokemon.attacks %}
+                <li>
+                    <input
+                        type="radio"
+                        id="attack-{{ forloop.counter }}"
+                        name="attack_id"
+                        value="{{ attack.name }}"
+                        required
+                    >
+                    <label for="attack-{{ forloop.counter }}">{{ attack.name }} ({{ attack.power }})</label>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Informações do Pokémon do NPC -->
+        <div class="pokemon-stats">
+            <h3>{{ npc_pokemon.name }}</h3>
+            <p>HP: <span id="npc-hp">{{ npc_pokemon.hp }}</span></p>
+        </div>
+    </div>
+
+    <!-- IDs dos Pokémons -->
+    <input type="hidden" name="pokemon_id" value="{{ player_pokemon.id }}">
+    <input type="hidden" name="npc_pokemon_id" value="{{ npc_pokemon.id }}">
+
+    <button type="submit" class="button">Atacar</button>
+</form>

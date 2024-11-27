@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Login - Pokémon Battle{% endblock %}
+
+{% block content %}
+<h1>Entrar</h1>
+<p>Bem-vindo de volta! Entre para continuar.</p>
+<form method="post">
+    {% csrf_token %}
+    <label for="username">Nome de Usuário</label>
+    <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
+    
+    <label for="password">Senha</label>
+    <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+    
+    <button type="submit">Entrar</button>
+</form>
+{% if error %}
+<p class="error">{{ error }}</p>
+{% endif %}
+<p>Não tem uma conta? <a href="{% url 'register' %}">Registre-se aqui</a>.</p>
+{% endblock %}

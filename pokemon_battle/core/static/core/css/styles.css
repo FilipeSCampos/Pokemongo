@@ -1,0 +1,375 @@
+/* Reset básico */
+body, h1, h2, p, ul, li, a, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #FFFFFF; /* Fundo branco */
+    color: #000000; /* Texto preto */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Barra de navegação */
+header {
+    background-color: #000000; /* Fundo preto */
+    color: #FFFFFF; /* Texto branco */
+    width: 100%;
+    padding: 1rem 2rem;
+    text-align: left;
+    position: fixed; /* Fixa no topo */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+header nav a {
+    color: #FFFFFF; /* Texto branco */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Conteúdo principal */
+main {
+    margin: 5rem auto 2rem; /* Espaço para o header fixo */
+    padding: 2rem;
+    width: 100%;
+    max-width: 700px;
+    background-color: #F4F4F4; /* Cinza claro */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1, h2 {
+    margin-bottom: 1rem;
+    color: #000000; /* Preto */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form label {
+    font-size: 1rem;
+    text-align: left;
+    color: #000000;
+}
+
+form input {
+    padding: 0.8rem;
+    border: 1px solid #CCCCCC; /* Cinza médio */
+    border-radius: 4px;
+    background-color: #FFFFFF; /* Branco */
+    transition: border-color 0.3s ease;
+}
+
+form input:focus {
+    border-color: #000000; /* Preto */
+    outline: none;
+}
+
+button {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    color: #FFFFFF; /* Texto branco */
+    background-color: #000000; /* Fundo preto */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #333333; /* Cinza escuro */
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    color: #666666; /* Cinza médio */
+    font-size: 0.9rem;
+    padding: 1rem;
+}
+
+/* Estilo para mensagens de erro */
+p.error {
+    color: #FF0000; /* Vermelho */
+    font-weight: bold;
+    background-color: #FFE0E0; /* Rosa claro */
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+/* Botões estilizados */
+.button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #FFFFFF; /* Texto branco */
+    background-color: #000000; /* Fundo preto */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #333333; /* Cinza escuro */
+    transform: scale(1.05); /* Leve efeito de zoom */
+}
+
+/* Agrupamento de botões */
+.button-group {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button {
+    text-decoration: none;
+    background-color: #555;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #333;
+}
+
+
+/* Grid centralizado dentro do formulário */
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Grid dinâmico */
+    gap: 20px; /* Espaçamento entre os cards */
+    justify-content: center; /* Centraliza o conteúdo */
+    max-width: 100vh; /* Limita a largura máxima */
+    margin: 0 ; /* Garante centralização horizontal */
+    padding: 10px;
+}
+
+/* Cards de Pokémon */
+.pokemon-card {
+    background-color: #FFF; /* Fundo branco para destaque */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.2s ease;
+}
+
+.pokemon-card:hover {
+    transform: scale(1.05);
+}
+
+/* Imagem do Pokémon */
+.pokemon-image {
+    max-width: 100%; /* Mantém proporção */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Botão de seleção estilizado */
+.checkbox-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-container label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkbox-container input[type="checkbox"]:checked + label {
+    background-color: #333;
+    color: #fff;
+}
+
+.checkbox-container label:hover {
+    background-color: #000000;
+}
+
+/* Botão centralizado */
+.button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #000000;
+}
+
+/* Botão de seleção estilizado */
+.checkbox-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none; /* Esconde o checkbox padrão */
+}
+
+.checkbox-container label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #555; /* Cor padrão */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkbox-container input[type="checkbox"]:checked + label {
+    background-color: #28a745; /* Verde ao selecionar */
+    color: white;
+    border-color: #28a745;
+}
+
+.checkbox-container label:hover {
+    background-color: #444; /* Cor de hover padrão */
+}
+
+/* Estilo para exibir os Pokémons em grid */
+.team-display {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+.pokemon-card {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 10px;
+    width: 100%; /* Ajusta o tamanho do card */
+    max-width: 150px; /* Limita a largura máxima */
+    transition: transform 0.2s ease;
+}
+
+.pokemon-card:hover {
+    transform: scale(1.05);
+}
+
+.pokemon-image {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Botão estilizado */
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.leaderboard-table th, .leaderboard-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.leaderboard-table th {
+    background-color: #333;
+    color: white;
+}
+
+.leaderboard-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.leaderboard-table tr:hover {
+    background-color: #ddd;
+}

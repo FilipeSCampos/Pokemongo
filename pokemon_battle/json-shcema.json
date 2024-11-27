@@ -1,0 +1,65 @@
+{
+    "Attack": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 50 },
+        "type": { "type": "string", "maxLength": 20 },
+        "power": { "type": "integer" }
+      },
+      "required": ["name", "type", "power"],
+      "additionalProperties": false
+    },
+    "Pokemon": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 50 },
+        "type": { "type": "string", "maxLength": 20 },
+        "hp": { "type": "integer" },
+        "attack": { "type": "integer" },
+        "defense": { "type": "integer" },
+        "attacks": {
+          "type": "array",
+          "items": { "$ref": "#/Attack" }
+        },
+        "image": { "type": ["string", "null"], "format": "uri" }
+      },
+      "required": ["name", "type", "hp", "attack", "defense", "attacks"],
+      "additionalProperties": false
+    },
+    "NPC": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 50 },
+        "pokemons": {
+          "type": "array",
+          "items": { "$ref": "#/Pokemon" }
+        }
+      },
+      "required": ["name", "pokemons"],
+      "additionalProperties": false
+    },
+    "Battle": {
+      "type": "object",
+      "properties": {
+        "player": { "type": "string", "format": "uuid" },
+        "player_team": {
+          "type": "array",
+          "items": { "type": "string", "format": "uuid" }
+        },
+        "npc": { "type": "string", "format": "uuid" },
+        "winner": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["player", "player_team", "npc", "winner"],
+      "additionalProperties": false
+    },
+    "Leaderboard": {
+      "type": "object",
+      "properties": {
+        "player": { "type": "string", "format": "uuid" },
+        "battles_won": { "type": "integer", "default": 0 }
+      },
+      "required": ["player", "battles_won"],
+      "additionalProperties": false
+    }
+  }
+  

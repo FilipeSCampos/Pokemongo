@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+
+{% load static %} <!-- Adicione esta linha -->
+
+{% block title %}Home - Pokémon Battle{% endblock %}
+
+{% block content %}
+<h1>Bem-vindo ao Pokémon Battle!</h1>
+
+{% if user.is_authenticated %}
+    <!-- Conteúdo para usuários logados -->
+    <p>Bem-vindo, {{ user.username }}!</p>
+    <div>
+        <img src="{% static 'core/images/display.jpg' %}" alt="Display Pokémon" style="max-width: 100%; border-radius: 8px;">
+    </div>
+    <div class="button-group">
+        <a href="{% url 'choose_team' %}" class="button">Escolher Time</a>
+        <a href="{% url 'start_battle' %}" class="button">Iniciar Batalha</a>
+        <a href="{% url 'leaderboard' %}" class="button">Leaderboard</a>
+        <a href="{% url 'logout' %}" class="button">Sair</a>
+    </div>
+{% else %}
+    <!-- Conteúdo para visitantes -->
+    <p>Participe de batalhas épicas com seus Pokémons favoritos!</p>
+    <div class="button-group">
+        <a href="{% url 'register' %}" class="button">Cadastrar</a>
+        <a href="{% url 'login' %}" class="button">Entrar</a>
+    </div>
+{% endif %}
+{% endblock %}

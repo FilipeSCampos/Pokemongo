@@ -1,0 +1,61 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Resultado da Batalha - Pokémon Battle{% endblock %}
+
+{% block content %}
+<h2>Resultado da Batalha</h2>
+
+{% if winner %}
+    {% if winner == "player" %}
+        <p>Parabéns! Você venceu a batalha contra {{ npc_name }}!</p>
+    {% else %}
+        <p>Que pena! Você perdeu a batalha para {{ npc_name }}.</p>
+    {% endif %}
+{% else %}
+    <p>A batalha terminou em empate!</p>
+{% endif %}
+
+<div class="team-display">
+    <div>
+        <h3>Seu Time</h3>
+        <div class="team">
+            {% if player_team %}
+                {% for pokemon in player_team %}
+                <div class="pokemon-card">
+                    <img src="{{ pokemon.image.url }}" alt="{{ pokemon.name }}" class="pokemon-image">
+                    <h4>{{ pokemon.name }}</h4>
+                    <p>Tipo: {{ pokemon.type }}</p>
+                    <p>HP: {{ pokemon.hp }}</p>
+                    <p>Ataque: {{ pokemon.attack }}</p>
+                    <p>Defesa: {{ pokemon.defense }}</p>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>Nenhum Pokémon foi encontrado no seu time.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div>
+        <h3>Time do NPC - {{ npc_name }}</h3>
+        <div class="team">
+            {% if npc_team %}
+                {% for pokemon in npc_team %}
+                <div class="pokemon-card">
+                    <img src="{{ pokemon.image.url }}" alt="{{ pokemon.name }}" class="pokemon-image">
+                    <h4>{{ pokemon.name }}</h4>
+                    <p>Tipo: {{ pokemon.type }}</p>
+                    <p>HP: {{ pokemon.hp }}</p>
+                    <p>Ataque: {{ pokemon.attack }}</p>
+                    <p>Defesa: {{ pokemon.defense }}</p>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>Nenhum Pokémon foi encontrado no time do NPC.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<a href="{% url 'home' %}" class="button">Voltar ao Início</a>
+{% endblock %}

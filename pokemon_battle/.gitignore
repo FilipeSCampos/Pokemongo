@@ -1,0 +1,18 @@
+# Django
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+db.sqlite3
+media/
+staticfiles/
+.env
+
+# IDEs e editores
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

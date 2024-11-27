@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Escolher Time - Pokémon Battle{% endblock %}
+
+{% block content %}
+<form action="{% url 'battle' %}" method="post">
+    {% csrf_token %}
+    <h2>Escolha 3 Pokémons para a batalha</h2>
+    <div class="pokemon-grid">
+        {% for pokemon in pokemons %}
+        <div class="pokemon-card">
+            <img src="{{ pokemon.image.url }}" alt="{{ pokemon.name }}" class="pokemon-image">
+            <h3>{{ pokemon.name }}</h3>
+            <p><strong>Tipo:</strong> {{ pokemon.type }}</p>
+            <p><strong>HP:</strong> {{ pokemon.hp }}</p>
+            <p><strong>Ataque:</strong> {{ pokemon.attack }}</p>
+            <p><strong>Defesa:</strong> {{ pokemon.defense }}</p>
+            <div class="checkbox-container">
+                <input type="checkbox" id="pokemon-{{ pokemon.id }}" name="selected_pokemons" value="{{ pokemon.id }}">
+                <label for="pokemon-{{ pokemon.id }}">Selecionar</label>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button type="submit" class="button">Iniciar Batalha</button>
+</form>
+{% endblock %}
